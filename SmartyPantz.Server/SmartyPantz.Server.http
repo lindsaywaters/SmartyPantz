@@ -1,0 +1,6 @@
+@SmartyPantz.Server_HostAddress = https://localhost:7109
+
+GET {{SmartyPantz.Server_HostAddress}}/skills/
+Accept: application/json
+
+###

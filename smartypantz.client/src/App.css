@@ -1,0 +1,125 @@
+﻿﻿
+.displayNone {
+    display: none;
+}
+
+
+/* CustomForm.css */
+
+
+
+h2 {
+    text-align: center;
+    color: #333;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+label {
+    display: flex;
+    align-items: center;
+    font-size: 16px;
+    color: #333;
+}
+
+input[type="checkbox"] {
+    margin-right: 10px;
+}
+
+input[type="submit"] {
+    background-color: #007bff; /* Blue for trust */
+    color: #fff;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+    input[type="submit"]:hover {
+        background-color: #0056b3; /* Darker blue for hover effect */
+    }
+
+.displayNone {
+    display: none;
+}
+
+.resultsPage {
+    text-align: center;
+}
+
+ul {
+    margin-right: 25px;
+}
+
+li {
+    background-color: #e6f2ff; /* Light blue for calmness */
+    margin: 5px 0;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+    li:nth-child(odd) {
+        background-color: #dff0d8; /* Light green for growth and reassurance */
+    }
+
+.navStyle {
+    background-color: #01020d;
+}
+
+.logo {
+    margin: 4px;
+}
+
+.nameStyle {
+    font-weight: 700;
+    font-size: 50px;
+    font-family: 'Bookman Old Style';
+    color: #2976A6
+}
+
+body html {
+    background-color: #01020d;
+}
+
+.nameBox {
+}
+
+.background {
+    background-color: #1A5173;
+}
+
+.cardStyle {
+    text-align: center
+}
+
+.cardRowStyle {
+    margin-top: 50px;
+}
+
+.cardText {
+    color: #F2F2F2
+}
+
+.extraSpace {
+    height: 100vw
+}
+
+.justifyCenter {
+    justify-content: center;
+}
+
+.quoteText {
+    text-align: center;
+}
+
+.buttonStyle {
+    background-color: #2976A6
+}
+
+
