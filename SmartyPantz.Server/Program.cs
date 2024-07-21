@@ -1,4 +1,13 @@
-using Microsoft.AspNetCore.Cors;
+using Microsoft.AspNetCore.Builder;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
+using SmartyPantz.Server.Models;
+using Microsoft.EntityFrameworkCore;
+using SmartyPantz.Server.Models.Contracts;
+using SmartyPantz.Server.Models.DataRepository;
+
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -7,8 +16,19 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+builder.Services.AddRazorPages();
+builder.Services.AddScoped<ISkillRepository, SkillRepository>();
+// Add a database provider (import the Microsoft.EntityFrameworkCore namespace!)
+builder.Services.AddDbContext<ApplicationContext>(options =>
+{
+    var connectionString = builder.Configuration.GetConnectionString("SkillsConnection");
+    options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString));
+});
 
 var app = builder.Build();
+
+
+
 
 app.UseCors(options =>
 {

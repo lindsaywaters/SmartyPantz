@@ -121,5 +121,12 @@ body html {
 .buttonStyle {
     background-color: #2976A6
 }
+.loginPageTitle {
+    text-align:center;
+    font-weight:700
+}
 
+.boldText {
+    font-weight:700;
+}
 
