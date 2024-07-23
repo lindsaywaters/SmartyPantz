@@ -14,7 +14,7 @@ function InfoForm() {
     useEffect(() => {
         axios.get('https://localhost:7109/api/Skills')
             .then(response => {
-              
+
                 const skillsWithChecked = response.data.map(skill => ({ ...skill, IsChecked: false }));
                 setSkills(skillsWithChecked);
             })
@@ -31,7 +31,7 @@ function InfoForm() {
         console.log(checkedSkillIds)
     }
 
-   
+
 
     function handleCheckboxChange(skillId) {
         setSkills(prevSkills =>
@@ -51,16 +51,16 @@ function InfoForm() {
     }
     return (
         <>
-            
+
 
             <div id="formPage" className="displayNone">
                 <form method="POST" onSubmit={handleSubmit}>
-                <div className="row">
-                    <div className="col-2"></div>
-                    <div className="col-4">
-                        <Card className="cardRowStyle" border="info" bg="dark">
-                            <Card.Body className="cardStyle">
-                               
+                    <div className="row">
+                        <div className="col-2"></div>
+                        <div className="col-4">
+                            <Card className="cardRowStyle" border="info" bg="dark">
+                                <Card.Body className="cardStyle">
+
                                     {skills.map(skill => (
                                         <div key={skill.id} className="checkboxSkillStyle">
                                             <label className="cardText">
@@ -75,16 +75,49 @@ function InfoForm() {
                                             </label>
                                         </div>
                                     ))}
-                                   
-                                
-                            </Card.Body>
-                        </Card>
+
+
+                                </Card.Body>
+                            </Card>
+                        </div>
+                        <div className="col-4">
+                            <div>
+                                <div>
+
+                                    <Card className="cardRowStyle" border="info" bg="dark">
+                                        <Card.Body className="resultsCardStyle">
+                                            <h3 className="cardText">Skills Your Child Needs To Work On</h3>
+                                            <ul className="justifyCenter">
+                                                {checkedSkillIds.map(skillId => {
+                                                    const skill = skills.find(s => s.id === skillId);
+                                                    return (
+                                                        <li key={skill.id}>{skill.description}</li>
+                                                    );
+                                                })}
+                                            </ul>
+                                            <Button variant="info" type="submit">
+                                                Submit
+                                            </Button>
+                                        </Card.Body>
+                                    </Card>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div className="col-2"></div>
                     </div>
+                </form>
+
+
+            </div>
+
+            <div id="resultsPage" className="displayNone">
+                <div className="row">
+                    <div className="col-4"></div>
                     <div className="col-4">
                         <div>
-                            <div>
 
-                             <Card className="cardRowStyle" border="info" bg="dark">
+                            <Card className="cardRowStyle" border="info" bg="dark">
                                 <Card.Body className="resultsCardStyle">
                                     <h3 className="cardText">Skills Your Child Needs To Work On</h3>
                                     <ul className="justifyCenter">
@@ -94,47 +127,14 @@ function InfoForm() {
                                                 <li key={skill.id}>{skill.description}</li>
                                             );
                                         })}
-                                            </ul>
-                                            <Button variant="info" type="submit">
-                                                Submit
-                                            </Button>
+                                    </ul>
+                                    <Button type="submit" onClick={handleCreatePlan}>Create Plan</Button>
+
                                 </Card.Body>
                             </Card>
 
-                            </div>
                         </div>
                     </div>
-                    <div className="col-2"></div>
-                    </div>
-                </form>
-
-                
-            </div>
-
-            <div id="resultsPage" className="displayNone">
-                <div className="row">
-                    <div className="col-4"></div>
-                <div className="col-4">
-                    <div>
-
-                        <Card className="cardRowStyle" border="info" bg="dark">
-                            <Card.Body className="resultsCardStyle">
-                                <h3 className="cardText">Skills Your Child Needs To Work On</h3>
-                                <ul className="justifyCenter">
-                                    {checkedSkillIds.map(skillId => {
-                                        const skill = skills.find(s => s.id === skillId);
-                                        return (
-                                            <li key={skill.id}>{skill.description}</li>
-                                        );
-                                    })}
-                                    </ul>
-                                    <Button type="submit" onClick={handleCreatePlan }>Create Plan</Button>
-                               
-                            </Card.Body>
-                        </Card>
-
-                    </div>
-                </div>
                     <div className="col-4"></div>
                 </div>
             </div>

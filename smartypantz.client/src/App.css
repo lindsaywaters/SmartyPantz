@@ -23,7 +23,7 @@ label {
     display: flex;
     align-items: center;
     font-size: 16px;
-    color: #333;
+    color: #F2F2F2
 }
 
 input[type="checkbox"] {

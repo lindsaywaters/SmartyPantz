@@ -22,6 +22,7 @@ function DisplayHomePage() {
         formPage.classList.add("displayNone")
         homeView.classList.add("displayNone")
         loginForm.classList.remove("displayNone")
+        resultsPage.classList.add("displayNone")
     }
     return (
 

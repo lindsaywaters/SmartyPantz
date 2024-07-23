@@ -18,6 +18,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddRazorPages();
 builder.Services.AddScoped<ISkillRepository, SkillRepository>();
+builder.Services.AddScoped<IUserRepository, UserRepository>();
 // Add a database provider (import the Microsoft.EntityFrameworkCore namespace!)
 builder.Services.AddDbContext<ApplicationContext>(options =>
 {

@@ -9,12 +9,12 @@ namespace SmartyPantz.Server.Models
         }
 
         public DbSet<Skill> Skills { get; set; }
+        public DbSet<User> Users { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            
             modelBuilder.Entity<Skill>().HasData(
-
-
                 new Skill { Id = 1, Description = "Learn to recognize and write letters of the alphabet", Title = "isLetters", IsChecked = false },
                 new Skill { Id = 2, Description = "Learn to recognize and write numbers 1-20", Title = "isNumbers", IsChecked = false },
                 new Skill { Id = 3, Description = "Learn to count objects up to 20", Title = "isCounting", IsChecked = false },
