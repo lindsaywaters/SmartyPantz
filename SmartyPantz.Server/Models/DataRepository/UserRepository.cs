@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using System.Threading.Tasks;
 using SmartyPantz.Server.Models.Contracts;
+using System.Xml.Serialization;
 
 namespace SmartyPantz.Server.Models.DataRepository
 {
@@ -29,6 +30,17 @@ namespace SmartyPantz.Server.Models.DataRepository
         public async Task<bool> UserExistsAsync(string username, string email)
         {
             return await _userContext.Users.AnyAsync(u => u.Username == username || u.Email == email);
+        }
+
+        public async Task<User?> AuthenticateAsync(string username, string password)
+        {
+            var user = await _userContext.Users.SingleOrDefaultAsync(u => u.Username == username);
+            if (user != null && BCrypt.Net.BCrypt.Verify(password, user.PasswordHash))
+            { 
+                return user;
+            }
+            
+            return null;
         }
     }
 }

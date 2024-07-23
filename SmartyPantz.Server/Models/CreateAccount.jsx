@@ -4,6 +4,7 @@ import axios from 'axios';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 
+
 const CreateAccountForm = () => {
     const initialValues = {
         username: '',
@@ -45,6 +46,9 @@ const CreateAccountForm = () => {
         } catch (error) {
             console.error('Error submitting form:', error.response ? error.response.data : error.message);
         }
+
+        createAccountForm.classList.add("displayNone");
+        loginForm.classList.remove("displayNone");
     };
 
     return (

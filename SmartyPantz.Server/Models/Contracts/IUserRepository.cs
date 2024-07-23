@@ -10,6 +10,6 @@ namespace SmartyPantz.Server.Models.Contracts
         Task<User?> GetUserByEmailAsync(string email);
         Task AddUserAsync(User user);
         Task<bool> UserExistsAsync(string username, string email);
+        Task<User?> AuthenticateAsync(string username, string password);
     }
 }
-

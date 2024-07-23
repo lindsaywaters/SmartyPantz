@@ -52,9 +52,16 @@ function DisplayHomePage() {
                             </div>
                             <div id="loginLink">
                             <div className="nameBox col-2">
-                                
+                                    
                                     <Button variant="info" onClick={handleLoginLinkClick}>Login</Button>
                                 
+                                </div>
+                            </div>
+                            <div id="logoutLink" className="displayNone">
+                                <div className="nameBox col-2">
+
+                                    <Button variant="info">Logout</Button>
+
                                 </div>
                             </div>
                             
