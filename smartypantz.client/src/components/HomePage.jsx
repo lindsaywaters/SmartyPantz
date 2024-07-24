@@ -103,9 +103,18 @@ export const DisplayHomePage = () => {
 }
 
 export const DisplayUserDashboard = () => {
-    function handleCheckSkillsClick() {
+    const handleCheckSkillsClick = () => {
         dashView.classList.add("displayNone");
         
+
+    }
+    const handleAchievementsClick = () => {
+
+    }
+    const handleMyTasksClick = () => {
+
+    }
+    const handleResourcesClick = () => {
 
     }
     return (
@@ -157,9 +166,9 @@ export const DisplayUserDashboard = () => {
                                 <Card.Body className="cardStyle">
                                     <Card.Title></Card.Title>
                                     <Card.Text className="cardText">
-
+                                        <h3>Achievements</h3>
                                     </Card.Text>
-                                    <Button className="buttonColor" variant="info" onClick={handleCheckSkillsClick}>Check Skills</Button>
+                                    <Button className="buttonColor" variant="info" onClick={handleAchievementsClick}>Check Progress</Button>
                                 </Card.Body>
                             </Card>
                         </div>
@@ -169,9 +178,9 @@ export const DisplayUserDashboard = () => {
                                 <Card.Body className="cardStyle">
                                     <Card.Title></Card.Title>
                                     <Card.Text className="cardText">
-
+                                        <h3>My Tasks</h3>
                                     </Card.Text>
-                                    <Button className="buttonColor" variant="info" onClick={handleCheckSkillsClick}>Check Skills</Button>
+                                    <Button className="buttonColor" variant="info" onClick={handleMyTasksClick}>Work On Skills</Button>
                                 </Card.Body>
                             </Card>
                         </div>
@@ -181,9 +190,9 @@ export const DisplayUserDashboard = () => {
                                 <Card.Body className="cardStyle">
                                     <Card.Title></Card.Title>
                                     <Card.Text className="cardText">
-
+                                        <h3>Resources</h3>
                                     </Card.Text>
-                                    <Button className="buttonColor" variant="info" onClick={handleCheckSkillsClick}>Check Skills</Button>
+                                    <Button className="buttonColor" variant="info" onClick={handleResourcesClick}>More Info</Button>
                                 </Card.Body>
                             </Card>
                         </div>
