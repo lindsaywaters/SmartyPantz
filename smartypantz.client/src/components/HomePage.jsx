@@ -7,10 +7,10 @@ import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import InfoForm from './Card';
 import Login from './Login';
+import Logout from './Logout'
 
 
-
-function DisplayHomePage() {
+export const DisplayHomePage = () => {
   
     function handleCheckSkillsClick() {
         homeView.classList.add("displayNone");
@@ -60,7 +60,7 @@ function DisplayHomePage() {
                             <div id="logoutLink" className="displayNone">
                                 <div className="nameBox col-2">
 
-                                    <Button variant="info">Logout</Button>
+                                    <Logout/>
 
                                 </div>
                             </div>
@@ -102,4 +102,104 @@ function DisplayHomePage() {
     );
 }
 
-export default DisplayHomePage;
+export const DisplayUserDashboard = () => {
+    function handleCheckSkillsClick() {
+        dashView.classList.add("displayNone");
+        
+
+    }
+    return (
+        <>
+            <div className="background">
+                <div className="row">
+                    <div className="col-12 " >
+
+                        <Navbar expand="lg" className="navStyle" >
+
+                            <div className="logo col-5" >
+                                <img
+                                    alt=""
+                                    src={Logo}
+                                    width="150"
+                                    height="120"
+                                    className="d-inline-block align-top"
+
+                                />
+
+                            </div>
+
+                            <div className="nameBox col-2 ">
+                                <p className="nameStyle">PreKReady</p>
+                            </div>
+                            <div className="col-3">
+                            </div>
+                            
+                            <div id="logoutLink" >
+                                <div className="nameBox col-2">
+
+                                    <Logout/>
+
+                                </div>
+                            </div>
+
+                        </Navbar>
+
+                    </div>
+                </div>
+                <div id="dashView">
+                    <div id="quote" className="row quoteText">
+                        <h1></h1>
+                    </div>
+                    <div className="row" id="cardRow">
+                        <div className="col-1"></div>
+                        <div className="col-2">
+                            <Card className="cardRowStyle" border="info" bg="dark">
+                                <Card.Body className="cardStyle">
+                                    <Card.Title></Card.Title>
+                                    <Card.Text className="cardText">
+
+                                    </Card.Text>
+                                    <Button className="buttonColor" variant="info" onClick={handleCheckSkillsClick}>Check Skills</Button>
+                                </Card.Body>
+                            </Card>
+                        </div>
+                        <div className="col-2"></div>
+                        <div className="col-2">
+                            <Card className="cardRowStyle" border="info" bg="dark">
+                                <Card.Body className="cardStyle">
+                                    <Card.Title></Card.Title>
+                                    <Card.Text className="cardText">
+
+                                    </Card.Text>
+                                    <Button className="buttonColor" variant="info" onClick={handleCheckSkillsClick}>Check Skills</Button>
+                                </Card.Body>
+                            </Card>
+                        </div>
+                        <div className="col-2"></div>
+                        <div className="col-2">
+                            <Card className="cardRowStyle" border="info" bg="dark">
+                                <Card.Body className="cardStyle">
+                                    <Card.Title></Card.Title>
+                                    <Card.Text className="cardText">
+
+                                    </Card.Text>
+                                    <Button className="buttonColor" variant="info" onClick={handleCheckSkillsClick}>Check Skills</Button>
+                                </Card.Body>
+                            </Card>
+                        </div>
+                        <div className="col-1"></div>
+                    </div>
+                </div>
+                <div className="row-6 extraSpace">
+
+                </div>
+            </div>
+
+            <footer></footer>
+       
+        </>
+    )
+}
+
+
+ 

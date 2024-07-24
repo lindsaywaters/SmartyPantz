@@ -10,6 +10,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Models\AuthenticationContext.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Remove="Models\CreateAccount.jsx" />
   </ItemGroup>
 

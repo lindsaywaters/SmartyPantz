@@ -3,13 +3,21 @@ import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import InfoForm from './components/Card';
 import axios from 'axios';
+import { useAuth } from './components/AuthenticationContext'
 
-
-import DisplayHomePage from './components/HomePage';
+import { DisplayHomePage, DisplayUserDashboard } from './components/HomePage';
 
 function App() {
+    const { isAuthenticated } = useAuth();
     return (
-        <DisplayHomePage />
+        <div className="App">
+            {isAuthenticated ? (
+                <DisplayUserDashboard />
+            ) : (
+                    <DisplayHomePage />
+            )}
+            
+        </div>
     )
 }
 export default App;
