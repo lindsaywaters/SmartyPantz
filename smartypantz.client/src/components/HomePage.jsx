@@ -8,6 +8,7 @@ import Card from 'react-bootstrap/Card';
 import InfoForm from './Card';
 import Login from './Login';
 import Logout from './Logout'
+import ResourcePage from './Resources';
 
 
 export const DisplayHomePage = () => {
@@ -103,7 +104,7 @@ export const DisplayHomePage = () => {
 }
 
 export const DisplayUserDashboard = () => {
-    const handleCheckSkillsClick = () => {
+    function handleCheckSkillsClick () {
         dashView.classList.add("displayNone");
         
 
@@ -114,7 +115,9 @@ export const DisplayUserDashboard = () => {
     const handleMyTasksClick = () => {
 
     }
-    const handleResourcesClick = () => {
+    function handleResourcesClick() {
+        resourcePage.classList.remove("displayNone")
+        dashView.classList.add("displayNone");
 
     }
     return (
@@ -198,6 +201,9 @@ export const DisplayUserDashboard = () => {
                         </div>
                         <div className="col-1"></div>
                     </div>
+                </div>
+                <div id="resourcePage" className="displayNone">
+                    <ResourcePage></ResourcePage>
                 </div>
                 <div className="row-6 extraSpace">
 

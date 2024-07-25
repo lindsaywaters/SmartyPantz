@@ -81,8 +81,7 @@ function InfoForm() {
                             </Card>
                         </div>
                         <div className="col-4">
-                            <div>
-                                <div>
+                           
 
                                     <Card className="cardRowStyle" border="info" bg="dark">
                                         <Card.Body className="resultsCardStyle">
@@ -101,8 +100,7 @@ function InfoForm() {
                                         </Card.Body>
                                     </Card>
 
-                                </div>
-                            </div>
+                               
                         </div>
                         <div className="col-2"></div>
                     </div>
