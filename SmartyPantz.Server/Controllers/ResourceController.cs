@@ -18,7 +18,7 @@ namespace SmartyPantz.Server.Controllers
             return Ok(resources);
         }
 
-        [HttpGet]
+        
 
         [HttpGet("grouped-by-skill")]
         public async Task<IActionResult> GetResourcesGroupedBySkill()

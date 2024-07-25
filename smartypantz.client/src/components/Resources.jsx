@@ -30,7 +30,7 @@ function ResourcePage() {
                         {skillsWithResources.map((skillWithResources) => (
                             <Card key={skillWithResources.skill} className="cardRowStyle" border="info" bg="dark">
                                 <Card.Body>
-                                    <Card.Title>{skillWithResources.skill}</Card.Title>
+                                    <h3 className="cardText">{skillWithResources.skill}</h3>
                                     <ul>
                                         {skillWithResources.resources.map((resource, index) => (
                                             <li key={index}>

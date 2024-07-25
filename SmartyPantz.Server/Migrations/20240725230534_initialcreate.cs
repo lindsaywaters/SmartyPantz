@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace SmartyPantz.Server.Migrations
 {
     /// <inheritdoc />
-    public partial class InitialCreate : Migration
+    public partial class initialcreate : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -85,25 +85,25 @@ namespace SmartyPantz.Server.Migrations
                 columns: new[] { "Id", "Description", "IsChecked", "Title" },
                 values: new object[,]
                 {
-                    { 1, "Learn to recognize and write letters of the alphabet", false, "isLetters" },
-                    { 2, "Learn to recognize and write numbers 1-20", false, "isNumbers" },
-                    { 3, "Learn to count objects up to 20", false, "isCounting" },
-                    { 4, "Learn to recognize basic shapes (circle, square, triangle, rectangle)", false, "isShapes" },
-                    { 5, "Learn to identify colors", false, "isColors" },
-                    { 6, "Develop fine motor skills through activities such as cutting with scissors, coloring, and tracing", false, "isFineMotor" },
-                    { 7, "Learn to recognize and write their own name", false, "isNameWriting" },
-                    { 8, "Learn to follow simple instructions", false, "isInstructions" },
-                    { 9, "Learn to participate in group activities and share with others", false, "isGroupActivities" },
-                    { 10, "Develop basic social skills such as taking turns and listening to others", false, "isSocialSkills" },
-                    { 11, "Develop independence in tasks like dressing themselves and cleaning up after activities", false, "isIndependence" },
-                    { 12, "Build vocabulary and language skills through reading and conversation", false, "isVocabulary" },
-                    { 13, "Develop basic math skills such as understanding basic addition and subtraction concepts", false, "isMath" },
-                    { 14, "Develop pre-reading skills such as recognizing rhyming words and understanding basic sight words", false, "isPreReading" },
-                    { 15, "Develop basic problem-solving skills through puzzles and simple games", false, "isProblemSolving" },
-                    { 16, "Develop gross motor skills through activities such as running, jumping, and climbing", false, "isGrossMotor" },
-                    { 17, "Practice good hygiene habits such as washing hands and covering coughs/sneezes", false, "isHygiene" },
-                    { 18, "Understand basic concepts of time such as morning, afternoon, and evening", false, "isTime" },
-                    { 19, "Engage in imaginative play and creativity", false, "isCreativity" }
+                    { 1, "Learn to recognize and write letters of the alphabet", false, "Alphabet Recognition and Writing" },
+                    { 2, "Learn to recognize and write numbers 1-20", false, "Number Recognition and Writing" },
+                    { 3, "Learn to count objects up to 20", false, "Counting Objects" },
+                    { 4, "Learn to recognize basic shapes (circle, square, triangle, rectangle)", false, "Shape Recognition" },
+                    { 5, "Learn to identify colors", false, "Color Identification" },
+                    { 6, "Develop fine motor skills through activities such as cutting with scissors, coloring, and tracing", false, "Fine Motor Skills Development" },
+                    { 7, "Learn to recognize and write their own name", false, "Name Writing" },
+                    { 8, "Learn to follow simple instructions", false, "Following Instructions" },
+                    { 9, "Learn to participate in group activities and share with others", false, "Group Participation" },
+                    { 10, "Develop basic social skills such as taking turns and listening to others", false, "Social Skills" },
+                    { 11, "Develop independence in tasks like dressing themselves and cleaning up after activities", false, "Independence in Tasks" },
+                    { 12, "Build vocabulary and language skills through reading and conversation", false, "Vocabulary and Language Skills" },
+                    { 13, "Develop basic math skills such as understanding basic addition and subtraction concepts", false, "Basic Math Skills" },
+                    { 14, "Develop pre-reading skills such as recognizing rhyming words and understanding basic sight words", false, "Pre-Reading Skills" },
+                    { 15, "Develop basic problem-solving skills through puzzles and simple games", false, "Problem-Solving Skills" },
+                    { 16, "Develop gross motor skills through activities such as running, jumping, and climbing", false, "Gross Motor Skills" },
+                    { 17, "Practice good hygiene habits such as washing hands and covering coughs/sneezes", false, "Hygiene Habits" },
+                    { 18, "Understand basic concepts of time such as morning, afternoon, and evening", false, "Understanding Time Concepts" },
+                    { 19, "Engage in imaginative play and creativity", false, "Imaginative Play and Creativity" }
                 });
 
             migrationBuilder.InsertData(
