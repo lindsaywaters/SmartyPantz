@@ -3,6 +3,8 @@ import axios from 'axios';
 import { useEffect } from 'react'
 import Card from 'react-bootstrap/Card';
 
+
+
 function ResourcePage() {
 
     const [skillsWithResources, setSkillsWithResources] = useState([]);
@@ -35,7 +37,13 @@ function ResourcePage() {
                                         {skillWithResources.resources.map((resource, index) => (
                                             <li key={index}>
                                                 <strong>{resource.type}: </strong>
-                                                {resource.name}
+                                                {resource.type === "Website" ? (
+
+                                                    <a href={resource.name}>{resource.name}</a>
+                                                ) : (
+                                                    <span>{resource.name}</span>
+                                                )}
+                                                
                                             </li>
                                         ))}
                                     </ul>
