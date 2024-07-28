@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Http;
 
 namespace SmartyPantz.Server.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/account")]
     [ApiController]
     public class AccountController : ControllerBase
     {
@@ -41,8 +41,7 @@ namespace SmartyPantz.Server.Controllers
             {
                 Username = model.Username,
                 Email = model.Email,
-                ChildsName = model.ChildsName,
-                ChildsAge = model.ChildsAge,
+            
                 PasswordHash = BCrypt.Net.BCrypt.HashPassword(model.Password)
             };
 
@@ -62,7 +61,7 @@ namespace SmartyPantz.Server.Controllers
                 {
                     // Set session
                     HttpContext.Session.SetString("UserId", user.Id.ToString());
-                    return Ok("Login successful");
+                    return Ok(new { userId = user.Id, message = "login successful"});
                 }
 
                 return Unauthorized("Invalid username or password");

@@ -16,6 +16,8 @@ namespace SmartyPantz.Server.Models
         
         public ICollection<Resource>? Resource { get; set; }
 
+        public ICollection<UserSkill>? UserSkills { get; set; }
+
     }
 
     public class Resource

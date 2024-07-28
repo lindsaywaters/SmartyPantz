@@ -13,17 +13,18 @@ import ResourcePage from './Resources';
 
 export const DisplayHomePage = () => {
   
-    function handleCheckSkillsClick() {
-        homeView.classList.add("displayNone");
-        formPage.classList.remove("displayNone");
-
-    }
+  
     function handleLoginLinkClick() {
         loginLink.classList.add("displayNone")
-        formPage.classList.add("displayNone")
+       
         homeView.classList.add("displayNone")
         loginForm.classList.remove("displayNone")
-        resultsPage.classList.add("displayNone")
+        
+    }
+    function handleCreateAccountLinkClick() {
+        loginForm.classList.add("displayNone")
+        createAccountForm.classList.remove("displayNone")
+        homeView.classList.add("displayNone")
     }
     return (
 
@@ -83,14 +84,13 @@ export const DisplayHomePage = () => {
                                     <Card.Text className="cardText">
                                         Assess your child's skills to pinpoint strengths and areas for growth, empowering targeted development
                                     </Card.Text>
-                                    <Button className="buttonColor" variant="info" onClick={handleCheckSkillsClick}>Check Skills</Button>
+                                    <Button className="createAccountLink" variant="info" onClick={handleCreateAccountLinkClick}>Create Account</Button>
                                 </Card.Body>
                             </Card>
                         </div>
                         <div className="col-5"></div>
                     </div>
                 </div>
-                <InfoForm></InfoForm>
                 <Login></Login>
                 <div className="row-6 extraSpace">
 
@@ -107,6 +107,7 @@ export const DisplayUserDashboard = () => {
     function handleCheckSkillsClick () {
         dashView.classList.add("displayNone");
         
+        formPage.classList.remove("displayNone");
 
     }
     const handleAchievementsClick = () => {
@@ -158,10 +159,10 @@ export const DisplayUserDashboard = () => {
 
                     </div>
                 </div>
+                <InfoForm></InfoForm>
                 <div id="dashView">
-                    <div id="quote" className="row quoteText">
-                        <h1></h1>
-                    </div>
+                  
+                    
                     <div className="row" id="cardRow">
                         <div className="col-1"></div>
                         <div className="col-2">
@@ -169,7 +170,7 @@ export const DisplayUserDashboard = () => {
                                 <Card.Body className="cardStyle">
                                     <Card.Title></Card.Title>
                                     <Card.Text className="cardText">
-                                        <h3>Achievements</h3>
+                                        Achievements
                                     </Card.Text>
                                     <Button className="buttonColor" variant="info" onClick={handleAchievementsClick}>Check Progress</Button>
                                 </Card.Body>
@@ -181,9 +182,9 @@ export const DisplayUserDashboard = () => {
                                 <Card.Body className="cardStyle">
                                     <Card.Title></Card.Title>
                                     <Card.Text className="cardText">
-                                        <h3>My Tasks</h3>
+                                        MyPlan
                                     </Card.Text>
-                                    <Button className="buttonColor" variant="info" onClick={handleMyTasksClick}>Work On Skills</Button>
+                                    <Button className="buttonColor" variant="info" onClick={handleCheckSkillsClick}>Check Skills</Button>
                                 </Card.Body>
                             </Card>
                         </div>
@@ -193,7 +194,7 @@ export const DisplayUserDashboard = () => {
                                 <Card.Body className="cardStyle">
                                     <Card.Title></Card.Title>
                                     <Card.Text className="cardText">
-                                        <h3>Resources</h3>
+                                        Resources
                                     </Card.Text>
                                     <Button className="buttonColor" variant="info" onClick={handleResourcesClick}>More Info</Button>
                                 </Card.Body>

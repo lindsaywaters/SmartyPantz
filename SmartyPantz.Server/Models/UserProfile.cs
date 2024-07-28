@@ -1,23 +1,20 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace SmartyPantz.Server.Models
 {
-    public class User
+    public class UserProfile
     {
         public int Id { get; set; }
 
         [Required]
-        [StringLength(50)]
         public string Username { get; set; }
 
-        [Required]
-        [EmailAddress]
-        public string Email { get; set; }
+       
 
-        [Required]
-        public string PasswordHash { get; set; }
-
-        public UserProfile UserProfile { get; set; }
         public ICollection<UserSkill> UserSkills { get; set; } 
+
+        public int UserId { get; set; }
+        public User User { get; set; }
     }
 }

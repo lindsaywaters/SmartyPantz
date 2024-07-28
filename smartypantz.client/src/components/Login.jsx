@@ -1,10 +1,11 @@
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form'
 import Card from 'react-bootstrap/Card';
-import CreateAccountForm from '../../../SmartyPantz.Server/Models/CreateAccount';
+
 import axios from 'axios'
 import { useState } from 'react';
 import { useAuth } from './AuthenticationContext'
+import CreateAccountForm from './CreateAccount';
 function Login() {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
@@ -39,9 +40,7 @@ function Login() {
            
 
             <div id="loginForm" className="displayNone">
-                <div className="row loginPageTitle ">
-                    <h1>Log in to track your childs progress </h1>
-                </div>
+               
                 <div className="row loginForm">
                     <div className="col-5"></div>
                     <div className="col-2">

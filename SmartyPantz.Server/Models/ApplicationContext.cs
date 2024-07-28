@@ -13,16 +13,39 @@ namespace SmartyPantz.Server.Models
         public DbSet<User> Users { get; set; }
 
         public DbSet<Resource> Resources { get; set; }
+        public DbSet<UserProfile> UserProfiles { get; set; }
+
+        public DbSet<UserSkill> UserSkills { get; set; }
+
         
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
 
+            modelBuilder.Entity<UserProfile>()
+                .HasOne(up => up.User)
+                .WithOne(u => u.UserProfile)
+                .HasForeignKey<UserProfile>(u => u.UserId);
+
             modelBuilder.Entity<Skill>()
                 .HasMany(s => s.Resource)
                 .WithOne(r => r.Skill)
                 .HasForeignKey(r => r.SkillId);
+            
+            modelBuilder.Entity<UserSkill>()
+              .HasKey(us => new { us.UserId, us.SkillId });
+
+            modelBuilder.Entity<UserSkill>()
+                 .HasOne(us => us.User)
+                 .WithMany(u => u.UserSkills)
+                 .HasForeignKey(us => us.UserId);
+
+            modelBuilder.Entity<UserSkill>()
+                 .HasOne(us => us.Skill)
+                 .WithMany(s => s.UserSkills)
+                 .HasForeignKey(us => us.SkillId);
+
 
             modelBuilder.Entity<Skill>().HasData(
                 new Skill { Id = 1, Description = "Learn to recognize and write letters of the alphabet", Title = "Alphabet Recognition and Writing", IsChecked = false },

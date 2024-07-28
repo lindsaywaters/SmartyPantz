@@ -22,7 +22,6 @@ namespace SmartyPantz.Server.Models
         [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
 
-        public string ChildsName { get; set; }
-        public int ChildsAge { get; set; }
+     
     }
 }
