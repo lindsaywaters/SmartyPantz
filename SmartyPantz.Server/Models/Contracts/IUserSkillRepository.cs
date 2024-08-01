@@ -2,7 +2,7 @@
 {
     public interface IUserSkillRepository
     {
-        IQueryable<UserSkill> UserSkill { get; }
+        
         IEnumerable<UserSkill> GetSkillsForUser(int userId);
         void AddSkillsToUser(int userId, IEnumerable<int> skillIds);
         void RemoveSkillFromUser(int userId, int skillId);

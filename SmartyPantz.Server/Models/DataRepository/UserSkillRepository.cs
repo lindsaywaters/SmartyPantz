@@ -9,8 +9,6 @@ namespace SmartyPantz.Server.Models
     {
         private readonly ApplicationContext _context;
 
-        IQueryable<UserSkill> IUserSkillRepository.UserSkill => throw new NotImplementedException();
-
         public UserSkillRepository(ApplicationContext context)
         {
             _context = context;
