@@ -1,7 +1,7 @@
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form'
 import Card from 'react-bootstrap/Card';
-
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios'
 import { useState } from 'react';
 import { useAuth } from './AuthenticationContext'
@@ -9,8 +9,8 @@ import CreateAccountForm from './CreateAccount';
 function Login() {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
-    const [errorMessage, setErrorMessage] = useState('');
     const { login } = useAuth();
+    const navigate = useNavigate();
     const handleSubmit = async (e) => {
         e.preventDefault();
 
@@ -20,11 +20,8 @@ function Login() {
                 password
             );
 
-
-            loginForm.classList.add("displayNone")
-            
-            loginLink.classList.add('displayNone')
-            logoutLink.classList.remove('displayNone')
+            navigate('/dashboard')
+           
         } catch (error) {
             console.error('login attempt failed:', error);
         }
@@ -32,8 +29,8 @@ function Login() {
 
 
     function handleCreateAccountLinkClick() {
-        loginForm.classList.add("displayNone")
-        createAccountForm.classList.remove("displayNone")
+        navigate('/create-account')
+        
     } 
     return (
         <>
@@ -84,7 +81,7 @@ function Login() {
             
             
             </div>
-            <CreateAccountForm/>
+           
            
            
 

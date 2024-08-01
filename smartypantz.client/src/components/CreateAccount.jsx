@@ -1,11 +1,15 @@
 ﻿import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
-
+import Modal from 'react-bootstrap/Modal';
+import {useState } from 'react'
 
 const CreateAccountForm = () => {
+    const [showModal, setShowModal] = useState(false);
+    const navigate = useNavigate();
     const initialValues = {
         username: '',
         email: '',
@@ -40,17 +44,23 @@ const CreateAccountForm = () => {
                     'Content-Type': 'application/json'
                 }
             });
+            setShowModal(true);
             console.log('Server response:', response.data);
+
         } catch (error) {
             console.error('Error submitting form:', error.response ? error.response.data : error.message);
         }
 
-        createAccountForm.classList.add("displayNone");
-        loginForm.classList.remove("displayNone");
+      
     };
 
+    const handleModalClose = () => {
+        setShowModal(false);
+        navigate('/login');
+    }
+
     return (
-        <div id="createAccountForm" className="displayNone">
+        <div id="createAccountForm">
             
             <div className="row loginForm">
                 <div className="col-5"></div>
@@ -92,6 +102,19 @@ const CreateAccountForm = () => {
                     </Card>
                 </div>
                 <div className="col-5"></div>
+                <Modal show={showModal} onHide={handleModalClose}>
+                    <Modal.Header closeButton>
+                        <Modal.Title>Registration Successful</Modal.Title>
+                    </Modal.Header>
+                    <Modal.Body>
+                        <p>You have successfully registered. You will be redirected to the login page.</p>
+                    </Modal.Body>
+                    <Modal.Footer>
+                        <Button variant="primary" onClick={handleModalClose}>
+                            OK
+                        </Button>
+                    </Modal.Footer>
+                </Modal>
             </div>
         </div>
     );

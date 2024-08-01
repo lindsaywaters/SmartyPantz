@@ -4,6 +4,12 @@ using SmartyPantz.Server.Models.Contracts;
 using SmartyPantz.Server.Models;
 using BCrypt.Net;
 using Microsoft.AspNetCore.Http;
+using System.IdentityModel.Tokens.Jwt;
+using Microsoft.IdentityModel.Tokens;
+using System.Security.Claims;
+using Microsoft.Extensions.Options;
+using System.Text;
+using Microsoft.Extensions.Logging;
 
 namespace SmartyPantz.Server.Controllers
 {
@@ -12,10 +18,14 @@ namespace SmartyPantz.Server.Controllers
     public class AccountController : ControllerBase
     {
         private readonly IUserRepository _userRepository;
-
-        public AccountController(IUserRepository userRepository)
+        private readonly JwtSettings _jwtSettings;
+        private readonly ILogger<AccountController> _logger;
+        public AccountController(IUserRepository userRepository, IOptions<JwtSettings> jwtSettings, ILogger<AccountController> logger)
         {
             _userRepository = userRepository;
+            _jwtSettings = jwtSettings.Value;
+            _logger = logger;
+           
         }
 
         [HttpPost("register")]
@@ -53,22 +63,21 @@ namespace SmartyPantz.Server.Controllers
         [HttpPost("login")]
         public async Task<IActionResult> Login([FromBody] LoginViewModel model)
         {
-            if (ModelState.IsValid)
+            _logger.LogInformation("JWT Key: {Key}", _jwtSettings.Key);
+            var user = await AuthenticateUserAsync(model.Username, model.Password);
+            if (user == null)
             {
-                var user = await _userRepository.GetUserByUsernameAsync(model.Username);
-
-                if (user != null && BCrypt.Net.BCrypt.Verify(model.Password, user.PasswordHash))
-                {
-                    // Set session
-                    HttpContext.Session.SetString("UserId", user.Id.ToString());
-                    return Ok(new { userId = user.Id, message = "login successful"});
-                }
-
-                return Unauthorized("Invalid username or password");
+                return Unauthorized();
             }
 
-            return BadRequest(ModelState);
+            var token = GenerateJwtToken(user);
+
+            return Ok(new { 
+                Token = token,
+                userId = user.Id
+            });
         }
+
 
         [HttpPost("logout")]
         public IActionResult Logout()
@@ -88,5 +97,51 @@ namespace SmartyPantz.Server.Controllers
 
             return Unauthorized();
         }
+
+        private string GenerateJwtToken(User user)
+        {
+            // Log the JWT key for debugging
+            _logger.LogInformation("JWT Key: {Key}", _jwtSettings.Key);
+
+            if (string.IsNullOrEmpty(_jwtSettings.Key))
+            {
+                throw new InvalidOperationException("JWT key is not configured.");
+            }
+
+            var tokenHandler = new JwtSecurityTokenHandler();
+            var key = Encoding.UTF8.GetBytes(_jwtSettings.Key);
+
+            var tokenDescriptor = new SecurityTokenDescriptor
+            {
+                Subject = new ClaimsIdentity(new Claim[]
+                {
+            new Claim(ClaimTypes.Name, user.Id.ToString())
+                }),
+                Expires = DateTime.UtcNow.AddDays(7),
+                SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)
+            };
+
+            var token = tokenHandler.CreateToken(tokenDescriptor);
+            return tokenHandler.WriteToken(token);
+        }
+
+        private async Task<User?> AuthenticateUserAsync(string username, string password)
+        {
+            var user = await _userRepository.GetUserByUsernameAsync(username);
+
+            // Check if user exists
+            if (user == null)
+            {
+                return null;
+            }
+
+            // Check if the provided password matches the stored hash
+            bool isPasswordValid = BCrypt.Net.BCrypt.Verify(password, user.PasswordHash);
+
+            return isPasswordValid ? user : null;
+        }
     }
+
+
+
 }

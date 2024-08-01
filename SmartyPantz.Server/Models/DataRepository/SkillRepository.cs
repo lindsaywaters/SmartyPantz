@@ -35,7 +35,9 @@ namespace SmartyPantz.Server.Models.DataRepository
         {
             entityToUpdate.Description = entity.Description;
             entityToUpdate.Title = entity.Title;
-            entityToUpdate.IsChecked = entity.IsChecked;
+            entityToUpdate.ActivityDescription = entity.ActivityDescription;
+            entityToUpdate.Activity = entity.Activity;
+           
 
             await _skillContext.SaveChangesAsync();
         }

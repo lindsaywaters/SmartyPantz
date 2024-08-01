@@ -8,7 +8,7 @@ function Logout() {
     const handleLogout = async () => {
         try {
             await logout();
-            logoutLink.classList.remove('displayNone');
+            
         } catch (error) {
             console.error('Logout unsuccessful:', error);
         }
@@ -16,7 +16,7 @@ function Logout() {
 
     return (
         <>
-            <Button id=""variant="info" onClick={handleLogout}>Logout</Button>
+            <Button variant="info" onClick={handleLogout}>Logout</Button>
         </>
     )
 };

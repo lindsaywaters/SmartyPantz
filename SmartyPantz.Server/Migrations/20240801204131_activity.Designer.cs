@@ -12,8 +12,8 @@ using SmartyPantz.Server.Models;
 namespace SmartyPantz.Server.Migrations
 {
     [DbContext(typeof(ApplicationContext))]
-    [Migration("20240728072548_initialcreate")]
-    partial class initialcreate
+    [Migration("20240801204131_activity")]
+    partial class activity
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -551,11 +551,14 @@ namespace SmartyPantz.Server.Migrations
 
                     MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("Id"));
 
+                    b.Property<string>("Activity")
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("ActivityDescription")
+                        .HasColumnType("longtext");
+
                     b.Property<string>("Description")
                         .HasColumnType("text");
-
-                    b.Property<bool>("IsChecked")
-                        .HasColumnType("tinyint(1)");
 
                     b.Property<string>("Title")
                         .HasColumnType("varchar(255)");
@@ -568,134 +571,153 @@ namespace SmartyPantz.Server.Migrations
                         new
                         {
                             Id = 1,
+                            Activity = "Alphabet scavenger hunt",
+                            ActivityDescription = "Find items around the house that start with each letter of the alphabet and practice writing the letters.",
                             Description = "Learn to recognize and write letters of the alphabet",
-                            IsChecked = false,
                             Title = "Alphabet Recognition and Writing"
                         },
                         new
                         {
                             Id = 2,
+                            Activity = "Number matching game",
+                            ActivityDescription = "Match number cards to groups of objects and practice writing the numbers.",
                             Description = "Learn to recognize and write numbers 1-20",
-                            IsChecked = false,
                             Title = "Number Recognition and Writing"
                         },
                         new
                         {
                             Id = 3,
+                            Activity = "Counting jar",
+                            ActivityDescription = "Fill a jar with small items and count them together.",
                             Description = "Learn to count objects up to 20",
-                            IsChecked = false,
                             Title = "Counting Objects"
                         },
                         new
                         {
                             Id = 4,
-                            Description = "Learn to recognize basic shapes (circle, square, triangle, rectangle)",
-                            IsChecked = false,
+                            Activity = "Shape hunt",
+                            ActivityDescription = "Find and identify shapes around the house or in nature.",
+                            Description = "Learn to recognize basic shapes",
                             Title = "Shape Recognition"
                         },
                         new
                         {
                             Id = 5,
+                            Activity = "Color sorting",
+                            ActivityDescription = "Sort colored objects into different color groups and practice naming the colors.",
                             Description = "Learn to identify colors",
-                            IsChecked = false,
                             Title = "Color Identification"
                         },
                         new
                         {
                             Id = 6,
+                            Activity = "Craft time with scissors",
+                            ActivityDescription = "Cut out shapes from paper and create a simple craft.",
                             Description = "Develop fine motor skills through activities such as cutting with scissors, coloring, and tracing",
-                            IsChecked = false,
                             Title = "Fine Motor Skills Development"
                         },
                         new
                         {
                             Id = 7,
+                            Activity = "Name practice sheets",
+                            ActivityDescription = "Trace and write their name using practice sheets.",
                             Description = "Learn to recognize and write their own name",
-                            IsChecked = false,
                             Title = "Name Writing"
                         },
                         new
                         {
                             Id = 8,
+                            Activity = "Simple recipe or craft",
+                            ActivityDescription = "Follow a simple recipe or craft project with step-by-step instructions.",
                             Description = "Learn to follow simple instructions",
-                            IsChecked = false,
                             Title = "Following Instructions"
                         },
                         new
                         {
                             Id = 9,
+                            Activity = "Playgroup games",
+                            ActivityDescription = "Participate in group games or activities with friends or family.",
                             Description = "Learn to participate in group activities and share with others",
-                            IsChecked = false,
                             Title = "Group Participation"
                         },
                         new
                         {
                             Id = 10,
-                            Description = "Develop basic social skills such as taking turns and listening to others",
-                            IsChecked = false,
+                            Activity = "Turn-taking games",
+                            ActivityDescription = "Play games that require taking turns and listening to others.",
+                            Description = "Develop basic social skills",
                             Title = "Social Skills"
                         },
                         new
                         {
                             Id = 11,
+                            Activity = "Dressing practice",
+                            ActivityDescription = "Practice dressing themselves with simple clothing items.",
                             Description = "Develop independence in tasks like dressing themselves and cleaning up after activities",
-                            IsChecked = false,
                             Title = "Independence in Tasks"
                         },
                         new
                         {
                             Id = 12,
+                            Activity = "Read together",
+                            ActivityDescription = "Read picture books and discuss the story to build vocabulary.",
                             Description = "Build vocabulary and language skills through reading and conversation",
-                            IsChecked = false,
                             Title = "Vocabulary and Language Skills"
                         },
                         new
                         {
                             Id = 13,
+                            Activity = "Math games",
+                            ActivityDescription = "Play simple addition and subtraction games using objects or drawings.",
                             Description = "Develop basic math skills such as understanding basic addition and subtraction concepts",
-                            IsChecked = false,
                             Title = "Basic Math Skills"
                         },
                         new
                         {
                             Id = 14,
+                            Activity = "Rhyming games",
+                            ActivityDescription = "Play rhyming games or read rhyming books to practice recognizing rhymes.",
                             Description = "Develop pre-reading skills such as recognizing rhyming words and understanding basic sight words",
-                            IsChecked = false,
                             Title = "Pre-Reading Skills"
                         },
                         new
                         {
                             Id = 15,
+                            Activity = "Puzzle time",
+                            ActivityDescription = "Work on age-appropriate puzzles to develop problem-solving skills.",
                             Description = "Develop basic problem-solving skills through puzzles and simple games",
-                            IsChecked = false,
                             Title = "Problem-Solving Skills"
                         },
                         new
                         {
                             Id = 16,
+                            Activity = "Obstacle course",
+                            ActivityDescription = "Create a simple obstacle course that includes running, jumping, and climbing.",
                             Description = "Develop gross motor skills through activities such as running, jumping, and climbing",
-                            IsChecked = false,
                             Title = "Gross Motor Skills"
                         },
                         new
                         {
                             Id = 17,
+                            Activity = "Hygiene routine practice",
+                            ActivityDescription = "Practice handwashing, brushing teeth, and covering coughs/sneezes with fun songs.",
                             Description = "Practice good hygiene habits such as washing hands and covering coughs/sneezes",
-                            IsChecked = false,
                             Title = "Hygiene Habits"
                         },
                         new
                         {
                             Id = 18,
+                            Activity = "Daily schedule",
+                            ActivityDescription = "Create a visual schedule with pictures to explain daily routines.",
                             Description = "Understand basic concepts of time such as morning, afternoon, and evening",
-                            IsChecked = false,
                             Title = "Understanding Time Concepts"
                         },
                         new
                         {
                             Id = 19,
+                            Activity = "Dress-up and role play",
+                            ActivityDescription = "Use costumes and props for imaginative play scenarios.",
                             Description = "Engage in imaginative play and creativity",
-                            IsChecked = false,
                             Title = "Imaginative Play and Creativity"
                         });
                 });

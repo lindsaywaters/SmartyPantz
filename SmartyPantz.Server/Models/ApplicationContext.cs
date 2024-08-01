@@ -48,26 +48,27 @@ namespace SmartyPantz.Server.Models
 
 
             modelBuilder.Entity<Skill>().HasData(
-                new Skill { Id = 1, Description = "Learn to recognize and write letters of the alphabet", Title = "Alphabet Recognition and Writing", IsChecked = false },
-                new Skill { Id = 2, Description = "Learn to recognize and write numbers 1-20", Title = "Number Recognition and Writing", IsChecked = false },
-                new Skill { Id = 3, Description = "Learn to count objects up to 20", Title = "Counting Objects", IsChecked = false },
-                new Skill { Id = 4, Description = "Learn to recognize basic shapes (circle, square, triangle, rectangle)", Title = "Shape Recognition", IsChecked = false },
-                new Skill { Id = 5, Description = "Learn to identify colors", Title = "Color Identification", IsChecked = false },
-                new Skill { Id = 6, Description = "Develop fine motor skills through activities such as cutting with scissors, coloring, and tracing", Title = "Fine Motor Skills Development", IsChecked = false },
-                new Skill { Id = 7, Description = "Learn to recognize and write their own name", Title = "Name Writing", IsChecked = false },
-                new Skill { Id = 8, Description = "Learn to follow simple instructions", Title = "Following Instructions", IsChecked = false },
-                new Skill { Id = 9, Description = "Learn to participate in group activities and share with others", Title = "Group Participation", IsChecked = false },
-                new Skill { Id = 10, Description = "Develop basic social skills such as taking turns and listening to others", Title = "Social Skills", IsChecked = false },
-                new Skill { Id = 11, Description = "Develop independence in tasks like dressing themselves and cleaning up after activities", Title = "Independence in Tasks", IsChecked = false },
-                new Skill { Id = 12, Description = "Build vocabulary and language skills through reading and conversation", Title = "Vocabulary and Language Skills", IsChecked = false },
-                new Skill { Id = 13, Description = "Develop basic math skills such as understanding basic addition and subtraction concepts", Title = "Basic Math Skills", IsChecked = false },
-                new Skill { Id = 14, Description = "Develop pre-reading skills such as recognizing rhyming words and understanding basic sight words", Title = "Pre-Reading Skills", IsChecked = false },
-                new Skill { Id = 15, Description = "Develop basic problem-solving skills through puzzles and simple games", Title = "Problem-Solving Skills", IsChecked = false },
-                new Skill { Id = 16, Description = "Develop gross motor skills through activities such as running, jumping, and climbing", Title = "Gross Motor Skills", IsChecked = false },
-                new Skill { Id = 17, Description = "Practice good hygiene habits such as washing hands and covering coughs/sneezes", Title = "Hygiene Habits", IsChecked = false },
-                new Skill { Id = 18, Description = "Understand basic concepts of time such as morning, afternoon, and evening", Title = "Understanding Time Concepts", IsChecked = false },
-                new Skill { Id = 19, Description = "Engage in imaginative play and creativity", Title = "Imaginative Play and Creativity", IsChecked = false }
-                );
+                new Skill { Id = 1, Title = "Alphabet Recognition and Writing", Description = "Learn to recognize and write letters of the alphabet", Activity = "Alphabet scavenger hunt", ActivityDescription = "Find items around the house that start with each letter of the alphabet and practice writing the letters." },
+                new Skill { Id = 2, Title = "Number Recognition and Writing", Description = "Learn to recognize and write numbers 1-20", Activity = "Number matching game", ActivityDescription = "Match number cards to groups of objects and practice writing the numbers." },
+                new Skill { Id = 3, Title = "Counting Objects", Description = "Learn to count objects up to 20", Activity = "Counting jar", ActivityDescription = "Fill a jar with small items and count them together." },
+                new Skill { Id = 4, Title = "Shape Recognition", Description = "Learn to recognize basic shapes", Activity = "Shape hunt", ActivityDescription = "Find and identify shapes around the house or in nature." },
+                new Skill { Id = 5, Title = "Color Identification", Description = "Learn to identify colors", Activity = "Color sorting", ActivityDescription = "Sort colored objects into different color groups and practice naming the colors." },
+                new Skill { Id = 6, Title = "Fine Motor Skills Development", Description = "Develop fine motor skills through activities such as cutting with scissors, coloring, and tracing", Activity = "Craft time with scissors", ActivityDescription = "Cut out shapes from paper and create a simple craft." },
+                new Skill { Id = 7, Title = "Name Writing", Description = "Learn to recognize and write their own name", Activity = "Name practice sheets", ActivityDescription = "Trace and write their name using practice sheets." },
+                new Skill { Id = 8, Title = "Following Instructions", Description = "Learn to follow simple instructions", Activity = "Simple recipe or craft", ActivityDescription = "Follow a simple recipe or craft project with step-by-step instructions." },
+                new Skill { Id = 9, Title = "Group Participation", Description = "Learn to participate in group activities and share with others", Activity = "Playgroup games", ActivityDescription = "Participate in group games or activities with friends or family." },
+                new Skill { Id = 10, Title = "Social Skills", Description = "Develop basic social skills", Activity = "Turn-taking games", ActivityDescription = "Play games that require taking turns and listening to others." },
+                new Skill { Id = 11, Title = "Independence in Tasks", Description = "Develop independence in tasks like dressing themselves and cleaning up after activities", Activity = "Dressing practice", ActivityDescription = "Practice dressing themselves with simple clothing items." },
+                new Skill { Id = 12, Title = "Vocabulary and Language Skills", Description = "Build vocabulary and language skills through reading and conversation", Activity = "Read together", ActivityDescription = "Read picture books and discuss the story to build vocabulary." },
+                new Skill { Id = 13, Title = "Basic Math Skills", Description = "Develop basic math skills such as understanding basic addition and subtraction concepts", Activity = "Math games", ActivityDescription = "Play simple addition and subtraction games using objects or drawings." },
+                new Skill { Id = 14, Title = "Pre-Reading Skills", Description = "Develop pre-reading skills such as recognizing rhyming words and understanding basic sight words", Activity = "Rhyming games", ActivityDescription = "Play rhyming games or read rhyming books to practice recognizing rhymes." },
+                new Skill { Id = 15, Title = "Problem-Solving Skills", Description = "Develop basic problem-solving skills through puzzles and simple games", Activity = "Puzzle time", ActivityDescription = "Work on age-appropriate puzzles to develop problem-solving skills." },
+                new Skill { Id = 16, Title = "Gross Motor Skills", Description = "Develop gross motor skills through activities such as running, jumping, and climbing", Activity = "Obstacle course", ActivityDescription = "Create a simple obstacle course that includes running, jumping, and climbing." },
+                new Skill { Id = 17, Title = "Hygiene Habits", Description = "Practice good hygiene habits such as washing hands and covering coughs/sneezes", Activity = "Hygiene routine practice", ActivityDescription = "Practice handwashing, brushing teeth, and covering coughs/sneezes with fun songs." },
+                new Skill { Id = 18, Title = "Understanding Time Concepts", Description = "Understand basic concepts of time such as morning, afternoon, and evening", Activity = "Daily schedule", ActivityDescription = "Create a visual schedule with pictures to explain daily routines." },
+                new Skill { Id = 19, Title = "Imaginative Play and Creativity", Description = "Engage in imaginative play and creativity", Activity = "Dress-up and role play", ActivityDescription = "Use costumes and props for imaginative play scenarios." }
+             );
+
 
 
             modelBuilder.Entity<Resource>().HasData(
